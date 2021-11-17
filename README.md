@@ -1,12 +1,12 @@
 # SockExchange
-Netty-based server and client for communicating with BungeeCord and Spigot servers
+Netty-based server and client for communicating with BungeeCord/Velocity and Spigot servers
 
 ## Installation
-Copy the same JAR into the plugins directory of your BungeeCord and Spigot installations. The
-[default BungeeCord configuration](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/resources/bungee-config.yml)
+Copy the same JAR into the plugins directory of your BungeeCord/Velocity and Spigot installations. The
+[default BungeeCord/Velocity configuration](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/resources/bungee-config.yml)
 should be fine unless you want to edit something. However, the [default Spigot configuration](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/resources/config.yml)
 sets the `ServerName` to `world` which should be changed to the name of that server as configured
-in the general BungeeCord configuration.
+in the general BungeeCord/Velocity configuration.
 
 ## Commands
 `/moveto`
@@ -137,8 +137,8 @@ class Example {
 }
 ```
 
-## [BungeeCord API](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/java/com/gmail/tracebachi/SockExchange/Bungee/SockExchangeApi.java)
-Use this API for plugins running on BungeeCord.
+## [BungeeCord/Velocity API](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/java/com/gmail/tracebachi/SockExchange/Bungee/SockExchangeApi.java)
+Use this API for plugins running on BungeeCord/Velocity.
 
 ```java
 class Example {

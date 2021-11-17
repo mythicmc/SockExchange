@@ -47,7 +47,7 @@ public class SockExchangeApi
     return instance;
   }
 
-  protected static void setInstance(SockExchangeApi api)
+  public static void setInstance(SockExchangeApi api)
   {
     instance = api;
   }
@@ -58,7 +58,7 @@ public class SockExchangeApi
   private final ScheduledExecutorService scheduledExecutorService;
   private final ReceivedMessageNotifier messageNotifier;
 
-  protected SockExchangeApi(
+  public SockExchangeApi(
     BungeeTieIn bungeeTieIn, ScheduledExecutorService scheduledExecutorService,
     ReceivedMessageNotifier messageNotifier)
   {

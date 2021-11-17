@@ -33,19 +33,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class BungeeKeepAliveSender implements Registerable
 {
-  private final SockExchangePlugin plugin;
+  private final BungeeTieIn bungeeTieIn;
   private final SockExchangeApi api;
   private final long updatePeriodMillis;
   private ScheduledFuture<?> updateFuture;
 
   public BungeeKeepAliveSender(
-    SockExchangePlugin plugin, SockExchangeApi api, long updatePeriodMillis)
+    BungeeTieIn bungeeTieIn, SockExchangeApi api, long updatePeriodMillis)
   {
-    Preconditions.checkNotNull(plugin, "plugin");
+    Preconditions.checkNotNull(bungeeTieIn, "bungeeTieIn");
     Preconditions.checkNotNull(api, "api");
     Preconditions.checkArgument(updatePeriodMillis > 0, "updatePeriodMillis");
 
-    this.plugin = plugin;
+    this.bungeeTieIn = bungeeTieIn;
     this.api = api;
     this.updatePeriodMillis = updatePeriodMillis;
   }
@@ -70,7 +70,7 @@ public class BungeeKeepAliveSender implements Registerable
 
   private void sendKeepAlive()
   {
-    List<SpigotServerInfo> serverInfos = plugin.getServerInfos();
+    List<SpigotServerInfo> serverInfos = bungeeTieIn.getServerInfos();
     ByteArrayDataOutput out = ByteStreams.newDataOutput(256);
 
     out.writeInt(serverInfos.size());

@@ -21,6 +21,7 @@ import com.google.common.io.ByteStreams;
 import net.md_5.bungee.api.plugin.Plugin;
 
 import java.io.*;
+import java.util.function.Function;
 
 /**
  * @author GeeItsZee (tracebachi@gmail.com)
@@ -47,7 +48,8 @@ public class BungeeResourceUtil
    */
   public static File saveResource(Plugin plugin, String resourceName, String destinationName)
   {
-    return saveResource(plugin, resourceName, destinationName, false);
+    return saveResource(plugin::getResourceAsStream, plugin.getDataFolder(),
+            resourceName, destinationName, false);
   }
 
   /**
@@ -58,10 +60,9 @@ public class BungeeResourceUtil
    * </p>
    */
   public static File saveResource(
-    Plugin plugin, String resourceName, String destinationName, boolean replaceIfDestExists)
+    Function<String, InputStream> getResourceAsStream,
+    File folder, String resourceName, String destinationName, boolean replaceIfDestExists)
   {
-    File folder = plugin.getDataFolder();
-
     if (!folder.exists() && !folder.mkdir())
     {
       return null;
@@ -75,7 +76,7 @@ public class BungeeResourceUtil
       {
         if (destinationFile.createNewFile())
         {
-          try (InputStream in = plugin.getResourceAsStream(resourceName);
+          try (InputStream in = getResourceAsStream.apply(resourceName);
             OutputStream out = new FileOutputStream(destinationFile))
           {
             ByteStreams.copy(in, out);

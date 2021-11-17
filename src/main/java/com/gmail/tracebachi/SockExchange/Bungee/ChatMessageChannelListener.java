@@ -34,7 +34,7 @@ public class ChatMessageChannelListener implements Consumer<ReceivedMessage>, Re
 {
   private final SockExchangeApi api;
 
-  ChatMessageChannelListener(SockExchangeApi api)
+  public ChatMessageChannelListener(SockExchangeApi api)
   {
     Preconditions.checkNotNull(api, "api");
 

@@ -18,7 +18,7 @@
 package com.gmail.tracebachi.SockExchange.Spigot;
 
 import com.gmail.tracebachi.SockExchange.Utilities.MessageFormatMap;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 
 /**
