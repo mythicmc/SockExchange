@@ -62,7 +62,7 @@ import java.util.concurrent.*;
 /**
  * @author GeeItsZee (tracebachi@gmail.com)
  */
-@Plugin(id = "sockexchange", name = "SockExchange", version = "1.0.0",
+@Plugin(id = "sockexchange", name = "SockExchange", version = "1.1.0",
         authors = {"GeeItsZee (tracebachi@gmail.com)"})
 public class SockExchangePlugin implements BungeeTieIn
 {
