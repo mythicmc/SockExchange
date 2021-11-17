@@ -1,6 +1,6 @@
-name: ${project.artifactId}
+name: SockExchange
 main: com.gmail.tracebachi.SockExchange.Spigot.SockExchangePlugin
-version: ${project.version}
+version: @project.version@
 author: GeeItsZee (tracebachi@gmail.com)
 commands:
   moveotherto:

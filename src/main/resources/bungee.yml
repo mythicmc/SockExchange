@@ -1,4 +1,4 @@
-name: ${project.artifactId}
+name: SockExchange
 main: com.gmail.tracebachi.SockExchange.Bungee.SockExchangePlugin
-version: ${project.version}
+version: @project.version@
 author: GeeItsZee (tracebachi@gmail.com)
