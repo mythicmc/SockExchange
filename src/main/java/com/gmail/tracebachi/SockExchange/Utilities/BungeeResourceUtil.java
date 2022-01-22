@@ -53,6 +53,25 @@ public class BungeeResourceUtil
   }
 
   /**
+   * Loads the resource from the JAR and saves it to the destination under the plugin's
+   * data folder. The destination file will be replaced if specified in the argument.
+   *
+   * @param plugin Plugin that contains the resource in its JAR
+   * @param resourceName Filename of the resource
+   * @param destinationName Filename of the destination
+   * @param replaceIfDestExists Whether or not to replace destination file if it exists
+   *
+   * @return Destination File
+   */
+  public static File saveResource(
+    Plugin plugin, String resourceName, String destinationName,
+    boolean replaceIfDestExists)
+  {
+    return saveResource(plugin::getResourceAsStream, plugin.getDataFolder(),
+            resourceName, destinationName, replaceIfDestExists);
+  }
+
+  /**
    * Source for the majority of this method can be found at:
    * https://www.spigotmc.org/threads/bungeecords-configuration-api.11214/#post-119017
    * <p>
