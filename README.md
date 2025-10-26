@@ -21,7 +21,11 @@ in the general BungeeCord/Velocity configuration.
   - Permission: `SockExchange.RunCmd`
   - Description: Use this command to send commands to run on other servers (commands will run as console)
 
-## [Spigot API](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/java/com/gmail/tracebachi/SockExchange/Spigot/SockExchangeApi.java)
+## Usage
+
+SockExchange is published to the [MythicMC Maven repository,](https://maven.mythicmc.org/#/releases/com/gmail/tracebachi/sockexchange) and Javadocs are available [here](https://maven.mythicmc.org/javadoc/releases/com/gmail/tracebachi/sockexchange/1.1.2).
+
+### [Spigot API](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/java/com/gmail/tracebachi/SockExchange/Spigot/SockExchangeApi.java)
 Use this API for plugins running on Spigot.
 
 ```java
@@ -137,7 +141,7 @@ class Example {
 }
 ```
 
-## [BungeeCord/Velocity API](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/java/com/gmail/tracebachi/SockExchange/Bungee/SockExchangeApi.java)
+### [BungeeCord/Velocity API](https://github.com/GeeItsZee/SockExchange/blob/master/src/main/java/com/gmail/tracebachi/SockExchange/Bungee/SockExchangeApi.java)
 Use this API for plugins running on BungeeCord/Velocity.
 
 ```java
