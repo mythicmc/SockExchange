@@ -363,8 +363,8 @@ public class SockExchangePlugin implements BungeeTieIn
 
   private boolean reloadConfiguration()
   {
-    File file = BungeeResourceUtil.saveResource(this.getClass()::getResourceAsStream,
-            dataFolder, "bungee-config.yml", "config.yml", false);
+    File file = BungeeResourceUtil.saveResource(this, dataFolder,
+            "bungee-config.yml", "config.yml");
 
     try
     {

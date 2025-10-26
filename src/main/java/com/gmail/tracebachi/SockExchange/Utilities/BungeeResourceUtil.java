@@ -48,8 +48,7 @@ public class BungeeResourceUtil
    */
   public static File saveResource(Plugin plugin, String resourceName, String destinationName)
   {
-    return saveResource(plugin::getResourceAsStream, plugin.getDataFolder(),
-            resourceName, destinationName, false);
+    return saveResource(plugin, resourceName, destinationName, false);
   }
 
   /**
@@ -72,6 +71,43 @@ public class BungeeResourceUtil
   }
 
   /**
+   * Loads the resource from the JAR and saves it to the destination under the specified
+   * folder. By default, the destination file will not be replaced if it exists.
+   *
+   * @param plugin Plugin that contains the resource in its JAR
+   * @param folder The destination folder to save the resource to
+   * @param resourceName Filename of the resource
+   * @param destinationName Filename of the destination
+   *
+   * @return Destination File
+   */
+  public static File saveResource(
+    Object plugin, File folder, String resourceName, String destinationName)
+  {
+      return saveResource(plugin, folder, resourceName, destinationName, false);
+  }
+
+  /**
+   * Loads the resource from the JAR and saves it to the destination under the specified
+   * folder. The destination file will be replaced if specified in the argument.
+   *
+   * @param plugin Plugin that contains the resource in its JAR
+   * @param folder The destination folder to save the resource to
+   * @param resourceName Filename of the resource
+   * @param destinationName Filename of the destination
+   * @param replaceIfDestExists Whether or not to replace destination file if it exists
+   *
+   * @return Destination File
+   */
+  public static File saveResource(
+    Object plugin, File folder, String resourceName, String destinationName,
+    boolean replaceIfDestExists)
+  {
+    return saveResource(plugin.getClass().getClassLoader()::getResourceAsStream, folder,
+            resourceName, destinationName, replaceIfDestExists);
+  }
+
+  /**
    * Source for the majority of this method can be found at:
    * https://www.spigotmc.org/threads/bungeecords-configuration-api.11214/#post-119017
    * <p>
@@ -79,8 +115,8 @@ public class BungeeResourceUtil
    * </p>
    */
   public static File saveResource(
-    Function<String, InputStream> getResourceAsStream,
-    File folder, String resourceName, String destinationName, boolean replaceIfDestExists)
+    Function<String, InputStream> getResourceAsStream, File folder,
+    String resourceName, String destinationName, boolean replaceIfDestExists)
   {
     if (!folder.exists() && !folder.mkdir())
     {
