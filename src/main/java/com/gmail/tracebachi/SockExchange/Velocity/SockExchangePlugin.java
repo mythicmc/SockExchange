@@ -17,6 +17,7 @@
  */
 package com.gmail.tracebachi.SockExchange.Velocity;
 
+import com.gmail.tracebachi.SockExchange.BuildMetadata;
 import com.gmail.tracebachi.SockExchange.Bungee.BungeeKeepAliveSender;
 import com.gmail.tracebachi.SockExchange.Bungee.BungeeTieIn;
 import com.gmail.tracebachi.SockExchange.Bungee.ChatMessageChannelListener;
@@ -62,7 +63,7 @@ import java.util.concurrent.*;
 /**
  * @author GeeItsZee (tracebachi@gmail.com)
  */
-@Plugin(id = "sockexchange", name = "SockExchange", version = "1.1.1",
+@Plugin(id = "sockexchange", name = "SockExchange", version = BuildMetadata.VERSION,
         authors = {"GeeItsZee (tracebachi@gmail.com)"})
 public class SockExchangePlugin implements BungeeTieIn
 {

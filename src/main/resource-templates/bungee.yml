@@ -1,4 +1,4 @@
 name: SockExchange
 main: com.gmail.tracebachi.SockExchange.Bungee.SockExchangePlugin
-version: @project.version@
+version: "{{ version }}"
 author: GeeItsZee (tracebachi@gmail.com)
