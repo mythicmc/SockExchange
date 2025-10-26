@@ -27,6 +27,8 @@ dependencies {
 }
 
 java {
+    withJavadocJar()
+    withSourcesJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
@@ -49,4 +51,53 @@ sourceSets {
 
 tasks.getByName<ShadowJar>("shadowJar") {
     minimize()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "mythicmcReleases"
+            url = uri("https://maven.mythicmc.org/releases")
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+    }
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.gmail.tracebachi"
+            artifactId = "sockexchange"
+            version = project.version.toString()
+            from(components["java"])
+            pom {
+                name = project.name
+                description = project.description
+                url = "https://github.com/mythicmc/SockExchange"
+                // properties = mapOf("myProp" to "value", "prop.with.dots" to "anotherValue")
+                licenses {
+                    license {
+                        name = "GPL-3.0-only"
+                        url = "https://spdx.org/licenses/GPL-3.0-only.html"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "GeeItsZee"
+                        email = "tracebachi@gmail.com"
+                    }
+                    developer {
+                        id = "retrixe"
+                        name = "Ibrahim Ansari"
+                        email = "ibu2@mythicmc.org"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/mythicmc/SockExchange.git"
+                    developerConnection = "scm:git:ssh://github.com/mythicmc/SockExchange.git"
+                    url = "https://github.com/mythicmc/SockExchange/"
+                }
+            }
+        }
+    }
 }
